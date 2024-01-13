@@ -2,11 +2,16 @@ const cookieParser = require("cookie-parser")
 const express=require("express")
 const morgan = require("morgan")
 const cors=require("cors")
+const { connectToDb } = require("./database/db")
+
 require("dotenv").config()
 
 
 // server init
 const server=express()
+
+// database connection
+connectToDb()
 
 // middlewares
 server.use(express.json())
